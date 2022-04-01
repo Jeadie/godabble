@@ -25,6 +25,7 @@ type Api struct {
 	version uint
 }
 
+// Construct an api object to interact with dabble.com. Version number should be at least 1.
 func ConstructApi(v uint) *Api {
 	return &Api{
 		client:  &http.Client{},
@@ -37,7 +38,7 @@ func (api *Api) GetRaw(uri string) ([]byte, error) {
 		"https://api.dabble.com/v%d%s", api.version, uri,
 	))
 	if err != nil {
-		return []byte{}, errors.New("GET request bad" +  err.Error())
+		return []byte{}, errors.New("GET request bad" + err.Error())
 	}
 	body, err := ioutil.ReadAll(res.Body)
 	if err != nil {
@@ -49,7 +50,9 @@ func (api *Api) GetRaw(uri string) ([]byte, error) {
 
 func (api *Api) GetDecode(uri string, obj any) error {
 	b, err := api.GetRaw(uri)
-	if err != nil { return errors.New("bad GetRaw"  + err.Error())} //err }
+	if err != nil {
+		return errors.New("bad GetRaw" + err.Error())
+	} //err }
 	return json.Unmarshal(b, obj)
 }
 
@@ -57,17 +60,18 @@ func (api *Api) Me() (*Me, error) {
 	me := &Me{}
 	return me, api.GetDecode("/me", me)
 }
-func (api *Api) Home() (*Home, error){
+func (api *Api) Home() (*Home, error) {
 	h := &Home{}
 	return h, api.GetDecode("/pages/home", h)
 }
 
 func (api *Api) Categories() ([]Category, error) {
 	c := &Categories{}
-	err := api.GetDecode("/categories", c); if err != nil {
+	err := api.GetDecode("/categories", c)
+	if err != nil {
 		return []Category{}, err
 	}
-	if len(c.ErrorMessage) > 0  {
+	if len(c.ErrorMessage) > 0 {
 		return []Category{}, fmt.Errorf("received error in dabble.com response, %s", c.ErrorMessage)
 	}
 	return c.Categories, nil
@@ -77,7 +81,7 @@ func (api *Api) Comments(rId, rType string, start, limit uint) (*Comments, error
 	c := &Comments{}
 	err := api.GetDecode(fmt.Sprintf(
 		"/comments?reference_id=%s&reference_type=%s&cursor=%d&limit=%d", rId, rType, start, limit,
-		), c)
+	), c)
 	if err == nil && len(c.ErrorMessage) > 0 {
 		return c, fmt.Errorf("received error in dabble.com response, %s", c.ErrorMessage)
 	}
@@ -114,6 +118,9 @@ func (api *Api) Stock(stockKey string) (*Stock, error) {
 
 func (api *Api) Tags() []Tag {
 	t := &Tags{}
-	err := api.GetDecode("/tags", t); if err != nil {return []Tag{}}
+	err := api.GetDecode("/tags", t)
+	if err != nil {
+		return []Tag{}
+	}
 	return t.Tags
 }
