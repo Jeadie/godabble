@@ -1,13 +1,11 @@
 package godabble
 
-//  /categories
 type Categories struct {
 	Categories   []Category `json:"categories"`
 	ErrorMessage string     `json:"error_message"`
 	Status       string     `json:"status"`
 }
 
-//	/comments?reference_id={reference_id}&reference_type={e.g. portfolio}&cursor={start}&limit={N}
 type Comments struct {
 	Comments         []Comment `json:"comments"`
 	ErrorMessage     string    `json:"error_message"`
@@ -18,13 +16,11 @@ type Comments struct {
 	Status           string    `json:"status"`
 }
 
-//  /pages/home
 type Home struct {
 	MetaTags PageMetaTags `json:"meta_tags"`
 	Sections []Section    `json:"sections"`
 }
 
-//  /me
 type Me struct {
 	EmailNotificationsEnabled int64       `json:"email_notifications_enabled"`
 	ErrorMessage              string      `json:"error_message"`
@@ -43,7 +39,6 @@ type Me struct {
 	WeeklyEmailEnabled        int64       `json:"weekly_email_enabled"`
 }
 
-// /pages/news?slug=/news/this-meme-coin-named-after-dogecoin-and-elon-musk-is-outperforming-major-coins-today-c90k39e73jrs909e9vm0
 type NewsPage struct {
 	Description       string           `json:"description"`
 	ErrorMessage      string           `json:"error_message"`
@@ -65,9 +60,7 @@ type NewsPage struct {
 	URL               string           `json:"url"`
 }
 
-//	/pages/portfolio?slug=/portfolio/big-data-companies-c8fbt6u73jrrf9vl7t00
-//  /pages/portfolio
-type Portfolios struct {
+type PortfolioPage struct {
 	AllocationMethod string         `json:"allocation_method"`
 	Chart            interface{}    `json:"chart"`
 	ChartOptions     []ChartOptions `json:"chart_options"`
@@ -105,14 +98,12 @@ type Portfolios struct {
 	WatchCount       int64          `json:"watch_count"`
 }
 
-// /pages/rankings
 type Rankings struct {
 	Gainers  PortfolioList `json:"gainers"`
 	Losers   PortfolioList `json:"losers"`
 	MetaTags PageMetaTags  `json:"meta_tags"`
 }
 
-//  pages/ticker?slug=/stocks/{STOCK}
 type Stock struct {
 	Ceo                 string         `json:"ceo"`
 	CeoPicture          string         `json:"ceo_picture"`
@@ -144,7 +135,6 @@ type Stock struct {
 	Type                string         `json:"type"`
 }
 
-//  /tags
 type Tags struct {
 	Tags []Tag `json:"tags"`
 }
