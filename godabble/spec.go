@@ -5,6 +5,19 @@ type Categories struct {
 	ErrorMessage string     `json:"error_message"`
 	Status       string     `json:"status"`
 }
+type CategoryPage struct {
+	Description     string        `json:"description"`
+	Emoji           string        `json:"emoji"`
+	ErrorMessage    string        `json:"error_message"`
+	ID              string        `json:"id"`
+	MetaTags        PageMetaTags  `json:"meta_tags"`
+	OtherCategories []Category    `json:"other_categories"`
+	Portfolios      []Portfolio   `json:"portfolios"`
+	Slug            string        `json:"slug"`
+	Status          string        `json:"status"`
+	Tags            []RelatedTags `json:"tags"`
+	Title           string        `json:"title"`
+}
 
 type Comments struct {
 	Comments         []Comment `json:"comments"`

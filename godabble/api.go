@@ -11,6 +11,7 @@ import (
 type DabbleApi interface {
 	Me() (*Me, error)
 	Categories() ([]Category, error)
+	CategoryPage() (*CategoryPage, error)
 	Home() (*Home, error)
 	Comments(rId, rType string, start, limit uint) (*Comments, error)
 	NewsPage(slug string) (*NewsPage, error)
@@ -75,6 +76,15 @@ func (api *Api) Categories() ([]Category, error) {
 		return []Category{}, fmt.Errorf("received error in dabble.com response, %s", c.ErrorMessage)
 	}
 	return c.Categories, nil
+}
+
+func (api *Api) CategoryPage(slug string) (*CategoryPage, error) {
+	n := &CategoryPage{}
+	err := api.GetDecode(fmt.Sprintf("/pages/category?slug=/category/%s", slug), n)
+	if err == nil && len(n.ErrorMessage) > 0 {
+		return n, fmt.Errorf("received error in dabble.com response, %s", n.ErrorMessage)
+	}
+	return n, err
 }
 
 func (api *Api) Comments(rId, rType string, start, limit uint) (*Comments, error) {
