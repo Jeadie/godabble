@@ -151,3 +151,25 @@ type Stock struct {
 type Tags struct {
 	Tags []Tag `json:"tags"`
 }
+
+type UserPage struct {
+	Bio                 string       `json:"bio"`
+	ErrorMessage        string       `json:"error_message"`
+	FollowerCount       int64        `json:"follower_count"`
+	Followers           []Follower   `json:"followers"`
+	Following           []Follower   `json:"following"`
+	FollowingCount      int64        `json:"following_count"`
+	ID                  string       `json:"id"`
+	IsAuthenticated     bool         `json:"is_authenticated"`
+	IsFollowing         bool         `json:"is_following"`
+	IsMine              bool         `json:"is_mine"`
+	MetaTags            PageMetaTags `json:"meta_tags"`
+	Picture             string       `json:"picture"`
+	PortfolioCount      int64        `json:"portfolio_count"`
+	PortfoliosPrivate   interface{}  `json:"portfolios_private"`
+	PortfoliosPublished []Portfolio  `json:"portfolios_published"`
+	PortfoliosWatched   []Portfolio  `json:"portfolios_watched"`
+	Slug                string       `json:"slug"`
+	Status              string       `json:"status"`
+	Username            string       `json:"username"`
+}

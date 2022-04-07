@@ -124,6 +124,15 @@ func (api *Api) Tags() []Tag {
 	return t.Tags
 }
 
+func (api Api) User(username string) (*UserPage, error) {
+	p := &UserPage{}
+	err := api.getDecode(fmt.Sprintf("/pages/user?slug=/users/%s", username), p)
+	if err == nil && len(p.ErrorMessage) > 0 {
+		return p, fmt.Errorf("received error in dabble.com response, %s", p.ErrorMessage)
+	}
+	return p, err
+}
+
 // TODO
 //	https://api.dabble.com/v1/charts/ticker?id=c4s0v1m73jrtd86rcil0&fidelity=1y
 //  https://api.dabble.com/v1/pages/ticker?slug=/stocks/aapl

@@ -58,6 +58,13 @@ type Country struct {
 	Value float64 `json:"value"`
 }
 
+type Follower struct {
+	ID       string `json:"id"`
+	Picture  string `json:"picture"`
+	Slug     string `json:"slug"`
+	Username string `json:"username"`
+}
+
 type Holding struct {
 	AllocationPercentage float64 `json:"allocation_percentage"`
 	Color                string  `json:"color"`

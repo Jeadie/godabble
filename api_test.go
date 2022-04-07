@@ -57,4 +57,10 @@ func TestApi(t *testing.T) {
 	if err != nil {
 		t.Errorf("failed to call Home, %s", err.Error())
 	}
+
+	_, err = api.User("luc")
+	if err != nil {
+		t.Errorf("failed to call User, %s", err.Error())
+	}
+
 }
