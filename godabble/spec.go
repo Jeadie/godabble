@@ -92,14 +92,14 @@ type PortfolioPage struct {
 	KeyStats         KeyStats       `json:"key_stats"`
 	MetaTags         PageMetaTags   `json:"meta_tags"`
 	Movement1y       float64        `json:"movement_1y"`
-	Movement24h      int64          `json:"movement_24h"`
+	Movement24h      float64        `json:"movement_24h"`
 	Movement7d       float64        `json:"movement_7d"`
 	News             []News         `json:"news"`
 	Picture          string         `json:"picture"`
-	Price            int64          `json:"price"`
-	Price1y          int64          `json:"price_1y"`
-	Price24h         int64          `json:"price_24h"`
-	Price7d          int64          `json:"price_7d"`
+	Price            float64        `json:"price"`
+	Price1y          float64        `json:"price_1y"`
+	Price24h         float64        `json:"price_24h"`
+	Price7d          float64        `json:"price_7d"`
 	PublishedAt      string         `json:"published_at"`
 	RecentReturns    RecentReturns  `json:"recent_returns"`
 	Sectors          []Sector       `json:"sectors"`
@@ -131,13 +131,13 @@ type Stock struct {
 	LocaleDescription   string         `json:"locale_description"`
 	MetaTags            PageMetaTags   `json:"meta_tags"`
 	Movement1y          float64        `json:"movement_1y"`
-	Movement24h         int64          `json:"movement_24h"`
+	Movement24h         float64        `json:"movement_24h"`
 	Movement7d          float64        `json:"movement_7d"`
 	News                []News         `json:"news"`
 	Portfolios          []Portfolio    `json:"portfolios"`
 	Price               float64        `json:"price"`
 	Price1y             float64        `json:"price_1y"`
-	Price24h            int64          `json:"price_24h"`
+	Price24h            float64        `json:"price_24h"`
 	Price7d             float64        `json:"price_7d"`
 	RecentReturns       RecentReturns  `json:"recent_returns"`
 	Slug                string         `json:"slug"`

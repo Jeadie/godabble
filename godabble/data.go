@@ -53,9 +53,9 @@ type Comment struct {
 }
 
 type Country struct {
-	Color string `json:"color"`
-	Label string `json:"label"`
-	Value int64  `json:"value"`
+	Color string  `json:"color"`
+	Label string  `json:"label"`
+	Value float64 `json:"value"`
 }
 
 type Holding struct {
@@ -63,12 +63,12 @@ type Holding struct {
 	Color                string  `json:"color"`
 	ID                   string  `json:"id"`
 	Movement1y           float64 `json:"movement_1y"`
-	Movement24h          int64   `json:"movement_24h"`
+	Movement24h          float64 `json:"movement_24h"`
 	Movement7d           float64 `json:"movement_7d"`
 	Price                float64 `json:"price"`
-	Price1y              int64   `json:"price_1y"`
-	Price24h             int64   `json:"price_24h"`
-	Price7d              int64   `json:"price_7d"`
+	Price1y              float64 `json:"price_1y"`
+	Price24h             float64 `json:"price_24h"`
+	Price7d              float64 `json:"price_7d"`
 	Slug                 string  `json:"slug"`
 	Ticker               string  `json:"ticker"`
 	TickerID             string  `json:"ticker_id"`
@@ -79,9 +79,9 @@ type KeyStats struct {
 	Chart            []ChartPoint `json:"chart"`
 	LinkedPortfolios interface{}  `json:"linked_portfolios"`
 	MarketCap        int64        `json:"market_cap"`
-	PeRatio          int64        `json:"pe_ratio"`
-	PriceLastClose   int64        `json:"price_last_close"`
-	PriceOpen        int64        `json:"price_open"`
+	PeRatio          float64      `json:"pe_ratio"`
+	PriceLastClose   float64      `json:"price_last_close"`
+	PriceOpen        float64      `json:"price_open"`
 	Range52WeekHigh  float64      `json:"range_52_week_high"`
 	Range52WeekLow   float64      `json:"range_52_week_low"`
 	RangeDayHigh     float64      `json:"range_day_high"`
@@ -141,14 +141,14 @@ type Portfolio struct {
 	Movement1y         float64     `json:"movement_1y"`
 	Movement24h        float64     `json:"movement_24h"`
 	Movement7d         float64     `json:"movement_7d"`
-	MovementLastClose  int64       `json:"movement_last_close"`
+	MovementLastClose  float64     `json:"movement_last_close"`
 	Picture            string      `json:"picture"`
 	Price              float64     `json:"price"`
-	Price1y            int64       `json:"price_1y"`
-	Price24h           int64       `json:"price_24h"`
-	Price7d            int64       `json:"price_7d"`
-	PriceLastClose     int64       `json:"price_last_close"`
-	PriceOpen          int64       `json:"price_open"`
+	Price1y            float64     `json:"price_1y"`
+	Price24h           float64     `json:"price_24h"`
+	Price7d            float64     `json:"price_7d"`
+	PriceLastClose     float64     `json:"price_last_close"`
+	PriceOpen          float64     `json:"price_open"`
 	Slug               string      `json:"slug"`
 	Title              string      `json:"title"`
 	UserDabbleOfficial int64       `json:"user_dabble_official"`
@@ -177,16 +177,16 @@ type RelatedTags struct {
 }
 
 type RelatedTickers struct {
-	AllocationPercentage int64   `json:"allocation_percentage"`
+	AllocationPercentage float64 `json:"allocation_percentage"`
 	Color                string  `json:"color"`
 	ID                   string  `json:"id"`
 	Movement1y           float64 `json:"movement_1y"`
-	Movement24h          int64   `json:"movement_24h"`
+	Movement24h          float64 `json:"movement_24h"`
 	Movement7d           float64 `json:"movement_7d"`
 	Price                float64 `json:"price"`
-	Price1y              int64   `json:"price_1y"`
-	Price24h             int64   `json:"price_24h"`
-	Price7d              int64   `json:"price_7d"`
+	Price1y              float64 `json:"price_1y"`
+	Price24h             float64 `json:"price_24h"`
+	Price7d              float64 `json:"price_7d"`
 	Slug                 string  `json:"slug"`
 	Ticker               string  `json:"ticker"`
 	TickerID             string  `json:"ticker_id"`
@@ -205,9 +205,9 @@ type Section struct {
 }
 
 type Sector struct {
-	Color string `json:"color"`
-	Label string `json:"label"`
-	Value int64  `json:"value"`
+	Color string  `json:"color"`
+	Label string  `json:"label"`
+	Value float64 `json:"value"`
 }
 
 type SmallTag struct {
@@ -223,13 +223,13 @@ type StockKeyStats struct {
 	MarketCap        int64        `json:"market_cap"`
 	MarketCapRank    int64        `json:"market_cap_rank"`
 	PeRatio          float64      `json:"pe_ratio"`
-	Price24h         int64        `json:"price_24h"`
-	PriceLastClose   int64        `json:"price_last_close"`
-	PriceOpen        int64        `json:"price_open"`
+	Price24h         float64      `json:"price_24h"`
+	PriceLastClose   float64      `json:"price_last_close"`
+	PriceOpen        float64      `json:"price_open"`
 	Range52WeekHigh  float64      `json:"range_52_week_high"`
 	Range52WeekLow   float64      `json:"range_52_week_low"`
-	RangeDayHigh     int64        `json:"range_day_high"`
-	RangeDayLow      int64        `json:"range_day_low"`
+	RangeDayHigh     float64      `json:"range_day_high"`
+	RangeDayLow      float64      `json:"range_day_low"`
 }
 
 type Tag struct {
