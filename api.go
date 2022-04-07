@@ -12,13 +12,16 @@ type DabbleApi interface {
 	Me() (*Me, error)
 	Categories() ([]Category, error)
 	CategoryPage() (*CategoryPage, error)
+	Crypto(crypto string) (*Ticker, error)
 	Home() (*Home, error)
 	Comments(rId, rType string, start, limit uint) (*Comments, error)
 	NewsPage(slug string) (*NewsPage, error)
 	PortfolioPage(slug string) (*PortfolioPage, error)
 	Rankings() (*Rankings, error)
-	Stock(stockKey string) (*Stock, error)
+	Stock(stockKey string) (*Ticker, error)
+	Ticker(slug string) (*Ticker, error)
 	Tags() []Tag
+	User(username string) (*UserPage, error)
 }
 
 type Api struct {
@@ -82,6 +85,11 @@ func (api *Api) Comments(rId, rType string, start, limit uint) (*Comments, error
 	return c, err
 }
 
+// Crypto is a page for a cryptocurrency entity. Importantly is not the full slug /crypto/%s, just %s.
+func (api *Api) Crypto(crypto string) (*Ticker, error) {
+	return api.Ticker(fmt.Sprintf("/crypto/%s", crypto))
+}
+
 // NewsPage is a page for a single news article with related content data (i.e. related tags, tickers, etc).
 func (api *Api) NewsPage(slug string) (*NewsPage, error) {
 	n := &NewsPage{}
@@ -108,10 +116,9 @@ func (api *Api) Rankings() (*Rankings, error) {
 	return r, api.getDecode("/pages/rankings", r)
 }
 
-// Stock page for a specific stock. stockKey is not a slug, but rather the end stock tag. e.g. AAPL.
-func (api *Api) Stock(stockKey string) (*Stock, error) {
-	s := &Stock{}
-	return s, api.getDecode(fmt.Sprintf("/pages/ticker?slug=/stocks/%s", stockKey), s)
+// Ticker page for a specific stock. stockKey is not a slug, but rather the end stock tag. e.g. AAPL.
+func (api *Api) Stock(stockKey string) (*Ticker, error) {
+	return api.Ticker(fmt.Sprintf("/stocks/%s", stockKey))
 }
 
 // Tags associated with the home page. Tags on a category page in specific are found in CategoryPage.Tags
@@ -122,6 +129,12 @@ func (api *Api) Tags() []Tag {
 		return []Tag{}
 	}
 	return t.Tags
+}
+
+// Ticker is a page for an arbitrary Ticker.
+func (api *Api) Ticker(slug string) (*Ticker, error) {
+	s := &Ticker{}
+	return s, api.getDecode(fmt.Sprintf("/pages/ticker?slug=%s", slug), s)
 }
 
 func (api Api) User(username string) (*UserPage, error) {

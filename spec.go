@@ -117,7 +117,8 @@ type Rankings struct {
 	MetaTags PageMetaTags  `json:"meta_tags"`
 }
 
-type Stock struct {
+// Ticker is the page of an asset, stock or cryptocurrency
+type Ticker struct {
 	Ceo                 string         `json:"ceo"`
 	CeoPicture          string         `json:"ceo_picture"`
 	Chart               interface{}    `json:"chart"`

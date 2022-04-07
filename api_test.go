@@ -63,4 +63,13 @@ func TestApi(t *testing.T) {
 		t.Errorf("failed to call User, %s", err.Error())
 	}
 
+	_, err = api.Ticker("/crypto/x-adausd")
+	if err != nil {
+		t.Errorf("failed to call Ticker, %s", err.Error())
+	}
+
+	_, err = api.Crypto("x-adausd")
+	if err != nil {
+		t.Errorf("failed to call Ticker, %s", err.Error())
+	}
 }
