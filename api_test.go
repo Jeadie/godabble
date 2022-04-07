@@ -23,6 +23,11 @@ func TestApi(t *testing.T) {
 		t.Errorf("failed to call CategoryPage, %s", err.Error())
 	}
 
+	_, err = api.Chart("c4s114u73jrtd86rhrd0", fiveDays)
+	if err != nil {
+		t.Errorf("failed to call Chart, %s", err.Error())
+	}
+
 	_, err = api.Comments("c8la7im73jrvpjmpo42g", "portfolio", 0, 5)
 	if err != nil {
 		t.Errorf("failed to call Comments, %s", err.Error())

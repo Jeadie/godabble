@@ -1,5 +1,17 @@
 package godabble
 
+type ChartFidelity string
+
+const (
+	fiveYears  ChartFidelity = "5y"
+	oneYear                  = "1y"
+	yearToDate               = "ytd"
+	sixMonths                = "6m"
+	oneMonth                 = "1m"
+	fiveDays                 = "5d"
+	oneDay                   = "1d"
+)
+
 type ArticleMetaTags struct {
 	ArticleModifiedTime  int64    `json:"article_modified_time"`
 	ArticlePublishedTime int64    `json:"article_published_time"`

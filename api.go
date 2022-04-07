@@ -37,6 +37,16 @@ func Construct() *Api {
 	}
 }
 
+// Chart of a Ticker entity for a given ChartFidelity
+func (api *Api) Chart(chartId string, fidelity ChartFidelity) (*Chart, error) {
+	c := &Chart{}
+	err := api.getDecode(fmt.Sprintf("/charts/ticker?id=%s&fidelity=%s", chartId, fidelity), c)
+	if err == nil && len(c.ErrorMessage) > 0 {
+		return c, fmt.Errorf("received error in dabble.com response, %s", c.ErrorMessage)
+	}
+	return c, err
+}
+
 // Me endpoint. Sparse fields if unauthenticated.
 func (api *Api) Me() (*Me, error) {
 	me := &Me{}
@@ -145,11 +155,6 @@ func (api Api) User(username string) (*UserPage, error) {
 	}
 	return p, err
 }
-
-// TODO
-//	https://api.dabble.com/v1/charts/ticker?id=c4s0v1m73jrtd86rcil0&fidelity=1y
-//  https://api.dabble.com/v1/pages/ticker?slug=/stocks/aapl
-//  https://api.dabble.com/v1/pages/ticker?slug=/crypto/x-adausd
 
 func (api *Api) getRaw(uri string) ([]byte, error) {
 	res, err := api.client.Get(fmt.Sprintf(
