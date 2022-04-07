@@ -75,40 +75,40 @@ type NewsPage struct {
 
 type PortfolioPage struct {
 	AllocationMethod string         `json:"allocation_method"`
-	Chart            interface{}    `json:"chart"`
-	ChartOptions     []ChartOptions `json:"chart_options"`
-	Countries        []Country      `json:"countries"`
-	Description      string         `json:"description"`
+	Chart         interface{}    `json:"chart"`
+	ChartOptions  []ChartOptions `json:"chart_options"`
+	Countries     []Country      `json:"countries"`
+	Description   string         `json:"description"`
 	Emoji            string         `json:"emoji"`
 	ErrorMessage     string         `json:"error_message"`
-	HoldingCount     int64          `json:"holding_count"`
-	Holdings         []Holding      `json:"holdings"`
-	ID               string         `json:"id"`
+	HoldingCount  int64          `json:"holding_count"`
+	Holdings      []Holding      `json:"holdings"`
+	ID            string         `json:"id"`
 	IsAuthenticated  bool           `json:"is_authenticated"`
 	IsMine           bool           `json:"is_mine"`
 	IsPublished      int64          `json:"is_published"`
 	IsQueuedForArt   int64          `json:"is_queued_for_art"`
-	IsWatched        bool           `json:"is_watched"`
-	KeyStats         KeyStats       `json:"key_stats"`
-	MetaTags         PageMetaTags   `json:"meta_tags"`
-	Movement1y       float64        `json:"movement_1y"`
+	IsWatched     bool           `json:"is_watched"`
+	KeyStats      KeyStats       `json:"key_stats"`
+	MetaTags      PageMetaTags   `json:"meta_tags"`
+	Movement1y    float64        `json:"movement_1y"`
 	Movement24h      float64        `json:"movement_24h"`
-	Movement7d       float64        `json:"movement_7d"`
-	News             []News         `json:"news"`
-	Picture          string         `json:"picture"`
+	Movement7d    float64        `json:"movement_7d"`
+	News          []News         `json:"news"`
+	Picture       string         `json:"picture"`
 	Price            float64        `json:"price"`
 	Price1y          float64        `json:"price_1y"`
 	Price24h         float64        `json:"price_24h"`
 	Price7d          float64        `json:"price_7d"`
-	PublishedAt      string         `json:"published_at"`
-	RecentReturns    RecentReturns  `json:"recent_returns"`
-	Sectors          []Sector       `json:"sectors"`
-	Slug             string         `json:"slug"`
-	Status           string         `json:"status"`
-	Tags             []Tag          `json:"tags"`
-	Title            string         `json:"title"`
-	User             User           `json:"user"`
-	WatchCount       int64          `json:"watch_count"`
+	PublishedAt   string         `json:"published_at"`
+	RecentReturns RecentReturns  `json:"recent_returns"`
+	Sectors       []Sector       `json:"sectors"`
+	Slug          string         `json:"slug"`
+	Status        string         `json:"status"`
+	Tags          []Tag          `json:"tags"`
+	Title         string         `json:"title"`
+	User          User           `json:"user"`
+	WatchCount    int64          `json:"watch_count"`
 }
 
 type Rankings struct {
@@ -120,30 +120,30 @@ type Rankings struct {
 type Stock struct {
 	Ceo                 string         `json:"ceo"`
 	CeoPicture          string         `json:"ceo_picture"`
-	Chart               interface{}    `json:"chart"`
-	ChartOptions        []ChartOptions `json:"chart_options"`
-	Color               string         `json:"color"`
+	Chart             interface{}    `json:"chart"`
+	ChartOptions      []ChartOptions `json:"chart_options"`
+	Color             string         `json:"color"`
 	Description         string         `json:"description"`
 	ErrorMessage        string         `json:"error_message"`
 	ExchangeDescription string         `json:"exchange_description"`
-	ID                  string         `json:"id"`
-	KeyStats            KeyStats       `json:"key_stats"`
-	LocaleDescription   string         `json:"locale_description"`
-	MetaTags            PageMetaTags   `json:"meta_tags"`
-	Movement1y          float64        `json:"movement_1y"`
+	ID                string         `json:"id"`
+	KeyStats          KeyStats       `json:"key_stats"`
+	LocaleDescription string         `json:"locale_description"`
+	MetaTags          PageMetaTags   `json:"meta_tags"`
+	Movement1y        float64        `json:"movement_1y"`
 	Movement24h         float64        `json:"movement_24h"`
-	Movement7d          float64        `json:"movement_7d"`
-	News                []News         `json:"news"`
-	Portfolios          []Portfolio    `json:"portfolios"`
-	Price               float64        `json:"price"`
+	Movement7d        float64        `json:"movement_7d"`
+	News              []News         `json:"news"`
+	Portfolios        []Portfolio    `json:"portfolios"`
+	Price             float64        `json:"price"`
 	Price1y             float64        `json:"price_1y"`
 	Price24h            float64        `json:"price_24h"`
-	Price7d             float64        `json:"price_7d"`
-	RecentReturns       RecentReturns  `json:"recent_returns"`
-	Slug                string         `json:"slug"`
-	Status              string         `json:"status"`
-	Tags                []SmallTag     `json:"tags"`
-	Ticker              string         `json:"ticker"`
+	Price7d           float64        `json:"price_7d"`
+	RecentReturns     RecentReturns  `json:"recent_returns"`
+	Slug              string         `json:"slug"`
+	Status            string         `json:"status"`
+	Tags              []SmallTag     `json:"tags"`
+	Ticker            string         `json:"ticker"`
 	Title               string         `json:"title"`
 	Type                string         `json:"type"`
 }
