@@ -39,6 +39,12 @@ type ChartOptions struct {
 	Title      string `json:"title"`
 }
 
+type ChartCandle struct {
+	T string    `json:"t"`
+	X int64     `json:"x"`
+	Y []float64 `json:"y"`
+}
+
 type ChartPoint struct {
 	T string  `json:"t"`
 	X int64   `json:"x"`

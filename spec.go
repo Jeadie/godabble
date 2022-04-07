@@ -20,9 +20,9 @@ type CategoryPage struct {
 }
 
 type Chart struct {
-	Chart        []ChartPoint `json:"chart"`
-	ErrorMessage string       `json:"error_message"`
-	Status       string       `json:"status"`
+	Chart        []ChartCandle `json:"chart"`
+	ErrorMessage string        `json:"error_message"`
+	Status       string        `json:"status"`
 }
 
 type Comments struct {
