@@ -6,6 +6,8 @@ import (
 
 func TestApi(t *testing.T) {
 	api := ConstructApi(1)
-	h, err := api.Home()
-	t.Errorf("Error: %s, h: %#v", err, h)
+	_, err := api.Home()
+	if err != nil {
+		t.Errorf(err.Error())
+	}
 }
